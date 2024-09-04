@@ -1,2 +1,10 @@
 ﻿  Proy1_MongeUreñaMariaPilar.cpp
+C:\Users\user\Dropbox\PC\Desktop\UNA\2DO SEMESTRE\PROGRAMACION 1\proyecto_1_programacion\Proy1_MongeUreñaMariaPilar\Proy1_MongeUreñaMariaPilar\Proy1_MongeUreñaMariaPilar.cpp(36,10): warning C4473: "scanf_s": no se pasaron suficientes argumentos para la cadena de formato
+  C:\Users\user\Dropbox\PC\Desktop\UNA\2DO SEMESTRE\PROGRAMACION 1\proyecto_1_programacion\Proy1_MongeUreñaMariaPilar\Proy1_MongeUreñaMariaPilar\Proy1_MongeUreñaMariaPilar.cpp(36,10):
+  los marcadores de posición y sus parámetros esperan 2 argumentos variádicos, pero se proporcionaron 1
+  C:\Users\user\Dropbox\PC\Desktop\UNA\2DO SEMESTRE\PROGRAMACION 1\proyecto_1_programacion\Proy1_MongeUreñaMariaPilar\Proy1_MongeUreñaMariaPilar\Proy1_MongeUreñaMariaPilar.cpp(36,10):
+  el argumento variádico 2 que falta es requerido por la cadena de formato '%c'
+  C:\Users\user\Dropbox\PC\Desktop\UNA\2DO SEMESTRE\PROGRAMACION 1\proyecto_1_programacion\Proy1_MongeUreñaMariaPilar\Proy1_MongeUreñaMariaPilar\Proy1_MongeUreñaMariaPilar.cpp(36,10):
+  este argumento se utiliza como un tamaño de búfer
+  
   Proy1_MongeUreñaMariaPilar.vcxproj -> C:\Users\user\Dropbox\PC\Desktop\UNA\2DO SEMESTRE\PROGRAMACION 1\proyecto_1_programacion\Proy1_MongeUreñaMariaPilar\x64\Debug\Proy1_MongeUreñaMariaPilar.exe
