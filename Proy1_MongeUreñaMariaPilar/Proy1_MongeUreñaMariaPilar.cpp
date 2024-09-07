@@ -52,7 +52,7 @@ int showUserOption(char userOption) {
 		printf("\n\t ii. Salir  \n");
 		showLines();
 		printf("\n\t Digite la opcion que quiere: ");
-		scanf_s();
+		////scanf_s();
 	
 		system("pause");
 

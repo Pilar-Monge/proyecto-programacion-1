@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string> 
 using namespace std;
 
 class Movie {
@@ -25,7 +26,7 @@ public:
 	void setCountry(string aCountry);
 	string getCountry();
 	void setSynopsis( string aSynopsis);
-	string getSynopsis(int aPosition);
+	string getSynopsis( );
 	void askInformation();
 	void showInformationMovie();
 
