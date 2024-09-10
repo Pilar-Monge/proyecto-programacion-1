@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string> 
 #include <cstdio>
+#include <stdio.h>
 using namespace std;
 
 class Movie {

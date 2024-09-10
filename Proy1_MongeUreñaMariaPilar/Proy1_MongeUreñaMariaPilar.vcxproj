@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cinema.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="Proy1_MongeUreñaMariaPilar.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cinema.h" />
     <ClInclude Include="Movie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
