@@ -17,6 +17,7 @@ private:
 public:
 	Movie();
 	Movie(string aName, int aYear, float aDuration, string aCountry, string aSynopsis);
+	~Movie();
 	void setName(string aName);
 	string  getName();
 	void setYear(int aYear);

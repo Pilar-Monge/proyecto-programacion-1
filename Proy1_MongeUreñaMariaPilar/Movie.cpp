@@ -16,6 +16,10 @@ Movie::Movie(string aName, int aYear, float aDuration, string aCountry, string a
 	synopsis = aSynopsis;
 }
 
+Movie::~Movie()
+{
+}
+
 void Movie:: setName(string aName) {
 	name = aName;
 }
@@ -58,6 +62,7 @@ string Movie::getSynopsis() {
 void Movie::askInformation(){
 	printf("\n\tPor favor, introducir la informacion de la pelicula.\n");
 	printf("\tNombre: ");
+	cin.ignore();
 	getline(cin, name);
 
 	printf("\n\tAnio de creacion: ");

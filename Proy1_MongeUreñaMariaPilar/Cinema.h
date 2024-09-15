@@ -14,7 +14,8 @@ class Cinema
 
 	public:
 		Cinema();
-	    Cinema(int anAmountOfMovies,int anAmountOfRooms);
+	    Cinema(int anAmountOfMovies,int anAmountOfRooms,char  anUserOption, Movie *aMovies);
+		~Cinema();
 
 		void setAmountOfMovies(int anAmountOfMovies);
 		int  getAmountOfMovies();
@@ -31,6 +32,8 @@ class Cinema
 		void showUserOption(char userOption);
 
 		void showLines();
-
+		void showFirstOptionMenu();
+		void showSecondOptionMenu();
+		void fillArrayOfMovies();
 };
 
