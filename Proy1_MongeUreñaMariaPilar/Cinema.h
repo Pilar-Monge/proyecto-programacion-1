@@ -37,5 +37,6 @@ class Cinema
 		void fillArrayOfMovies();
 		void fillArrayOfRooms();
 		void showCinemaBillboard();
+
 };
 

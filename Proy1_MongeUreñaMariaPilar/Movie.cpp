@@ -59,6 +59,7 @@ void Movie::setSynopsis(string aSynopsis) {
 string Movie::getSynopsis() {
 	return synopsis;
 }
+
 void Movie::askInformation(){
 	printf("\n\tPor favor, introducir la informacion de la pelicula.\n");
 	cin.ignore();
@@ -80,6 +81,7 @@ void Movie::askInformation(){
 	getline(cin, synopsis);
 
 }
+
 void Movie::showInformationMovie() {
 
 
