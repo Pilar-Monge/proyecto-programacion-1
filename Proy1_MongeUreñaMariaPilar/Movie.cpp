@@ -61,8 +61,8 @@ string Movie::getSynopsis() {
 }
 void Movie::askInformation(){
 	printf("\n\tPor favor, introducir la informacion de la pelicula.\n");
-	printf("\tNombre: ");
 	cin.ignore();
+	printf("\tNombre: ");
 	getline(cin, name);
 
 	printf("\n\tAnio de creacion: ");
@@ -71,23 +71,25 @@ void Movie::askInformation(){
 	printf("\n\tDuracion de la pelicula en minutos: ");
 	scanf_s("%f",&duration);
 
+	cin.ignore();
 	printf("\n\tPais: ");
-	cin.ignore();
 	getline(cin, country);
-	
-	printf("\n\tSinopsis de la pelicula: ");
+
 	cin.ignore();
+	printf("\n\tSinopsis de la pelicula: ");
 	getline(cin, synopsis);
 
 }
-void Movie ::showInformationMovie() {
-	
-	printf("\n\tInformacion de la pelicula:\n");
+void Movie::showInformationMovie() {
+
+
 	printf("\tNombre: %s\n", name.c_str());
 	printf("\tAnio de creacion: %d\n", year);
 	printf("\tDuracion de la pelicula: %.2f min\n", duration);
 	printf("\tPais: %s\n", country.c_str());
 	printf("\tSinopsis de la pelicula: %s\n", synopsis.c_str());
+
+
 
 }
 

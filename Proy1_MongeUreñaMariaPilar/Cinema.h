@@ -10,7 +10,7 @@ class Cinema
 		int amountOfRooms;
 		char  userOption;
 		Movie* movies; //Vector de Peliculas
-	//	Room* rooms; Vector de salas
+		//Room* rooms; 
 
 	public:
 		Cinema();
@@ -35,5 +35,7 @@ class Cinema
 		void showFirstOptionMenu();
 		void showSecondOptionMenu();
 		void fillArrayOfMovies();
+		void fillArrayOfRooms();
+		void showCinemaBillboard();
 };
 
