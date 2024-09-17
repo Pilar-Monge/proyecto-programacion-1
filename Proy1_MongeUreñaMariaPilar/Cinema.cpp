@@ -6,19 +6,21 @@ Cinema::Cinema(){
 	amountOfRooms = 0;
 	userOption = NULL;
 	movies[amountOfMovies];
-
+	rooms[amountOfRooms];
 }
 
-Cinema::Cinema(int anAmountOfMovies, int anAmountOfRooms,char  anUserOption, Movie* aMovies){
+Cinema::Cinema(int anAmountOfMovies, int anAmountOfRooms,char  anUserOption, Movie* aMovies, Room* aRooms){
 	amountOfMovies = anAmountOfMovies;
 	amountOfRooms = anAmountOfRooms;
 	userOption = anUserOption;
-	movies[amountOfMovies];
+	movies[amountOfMovies]=aMovies[anAmountOfMovies];
+	rooms[amountOfRooms]=aRooms[anAmountOfMovies];
 }
 
 Cinema::~Cinema()
 {
 	delete[] movies;
+	delete[] rooms;
 }
 
 void Cinema::setAmountOfMovies(int anAmountOfMovies){
@@ -36,6 +38,38 @@ void Cinema ::setAmountOfRoomes(int anAmountOfRooms){
 int Cinema::getAmountOfRooms(){
 	return amountOfRooms;
 }
+
+//void Cinema::setMovies(Movie* aMovies, int size)
+//{
+//	aMovies = new Movie[size];
+//	for (int i = 0; i < size; ++i) 
+//		aMovies[i]= movies[i]; 
+//	delete[] movies;
+//	amountOfMovies = size;
+//	movies = aMovies;
+//
+//}
+//
+//Movie* Cinema::getMovies()
+//{
+//	return movies;
+//}
+//
+//void Cinema::setRooms(Room* aRooms, int size)
+//{
+//	aRooms = new Room[size];
+//	for (int i = 0; i < size; ++i)
+//		aRooms[i] = rooms[i];
+//	delete[] rooms;
+//	amountOfRooms = size;
+//	rooms = aRooms;
+//
+//}
+//
+//Room* Cinema::getRooms()
+//{
+//	return rooms;
+//}
 
 void Cinema::showLines(){
 
@@ -76,7 +110,7 @@ void Cinema::showFirstOptionMenu() {
 
 void Cinema::fillArrayOfMovies()
 {
-	printf("\n Cuantas peliculas quieren ingresar: ");
+	printf("\n Cuantas peliculas quiere ingresar: ");
 	scanf_s("%d", &amountOfMovies);
 
 	movies = new Movie[amountOfMovies];
@@ -86,9 +120,7 @@ void Cinema::fillArrayOfMovies()
 	for (int i = 0; i < amountOfMovies; i++) {
 
 		printf("\n\t Pelicula %d \n",i+1);
-		/*Movie p;
-		p.askInformation();
-		movies[i]= p;*/
+	
 		movies[i].askInformation();
 		
 		system("pause");
@@ -99,20 +131,18 @@ void Cinema::fillArrayOfMovies()
 
 void Cinema::fillArrayOfRooms()
 {
-	printf("\n Cuantas peliculas quieren ingresar: ");
+	printf("\n Cuantas salas quiere ingresar: ");
 	scanf_s("%d", &amountOfRooms);
 
-	movies = new Movie[amountOfRooms];
+	rooms = new Room[amountOfRooms];
 
 	printf("\n Por favor ingrese la informacion solicitada.\n ");
 	showLines();
 	for (int i = 0; i < amountOfRooms; i++) {
 
-		printf("\n\t Pelicula %d \n", i + 1);
-		/*Movie p;
-		p.askInformation();
-		movies[i]= p;*/
-		movies[i].askInformation();
+		printf("\n\t Sala de Cine %d \n", i + 1);
+		
+		rooms[i].askInformationToCreateRoom(i+1);
 		showLines();
 		system("pause");
 		system("cls");
@@ -144,6 +174,48 @@ void Cinema::showCinemaBillboard()
 	system("pause");
 }
 
+void Cinema::fillInformationschedules()
+{
+	if (amountOfRooms == 0) {
+		printf("\n Tiene que ingresar las salas primero para poder crear los horarios respectivos.\n ");
+		system("pause");
+		system("cls");
+		printf("\n\t Esta de nuevo en el menu principal: ");
+		showUserMenu();
+	}
+	for (int i = 0; i < amountOfRooms; i++) {
+		int size = 0;
+		int* vectorTime = NULL;
+		printf("\n Cuantos horarios quiere ingresar para la sala %d: ",i+1);
+		scanf_s("%d", &size);
+
+		rooms[i].setAmountOfSchedules(size);
+		if (size != 0) {
+			vectorTime = new int[size];
+			fillVectorOfMoviesTime(vectorTime, size);//revisar 
+			rooms[i].fillArrayOfSchedules(vectorTime, size);
+
+		}
+		system("pause");
+		system("cls");
+
+	}
+}
+
+void Cinema::fillVectorOfMoviesTime(int* vector, int size)
+{
+	for (int i = 0; i < size; i++) {
+		int option = 0;
+		system("cls");
+		showLines();
+		showCinemaBillboard();
+		printf("\n Elija una pelicula de la cartelera para el horario %d ", i + 1);
+		scanf_s("%d", &option);
+		vector[i] = movies[option - 1].getDuration();
+	}
+
+}
+
 void Cinema::showSecondOptionMenu() {
 	string option = " ";
 	printf("\n\t Digite la opcion que quiere: ");
@@ -163,9 +235,7 @@ void Cinema::showSecondOptionMenu() {
 		system("cls");
 		printf("\n\t Salas: \n");
 		showLines();
-		showCinemaBillboard();
-		// pedir info salas
-		
+		fillArrayOfRooms();
 		printf("\n\t Esta de nuevo en el menu principal: ");
 		showUserMenu();
 	}
@@ -173,7 +243,7 @@ void Cinema::showSecondOptionMenu() {
 		system("cls");
 		printf("\n\t Horarios: ");
 		showLines();
-		//pedir info horarios
+		fillInformationschedules();
 		system("pause");
 		system("cls");
 		printf("\n\t Esta de nuevo en el menu principal: ");
@@ -269,6 +339,8 @@ void Cinema::showUserOption(char userOption)
 		; break;
 	}
 }
+
+
 
 
 

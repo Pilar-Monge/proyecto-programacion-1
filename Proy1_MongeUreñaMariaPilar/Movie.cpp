@@ -8,7 +8,7 @@ Movie::Movie() {
 	synopsis = "None";
 }
 
-Movie::Movie(string aName, int aYear, float aDuration, string aCountry, string aSynopsis) {
+Movie::Movie(string aName, int aYear, int aDuration, string aCountry, string aSynopsis) {
 	name = aName;
 	year = aYear;
 	duration = aDuration;
@@ -36,11 +36,11 @@ int Movie:: getYear() {
 	return year;
 }
 
-void Movie::setDuration(float aDuration) {
+void Movie::setDuration(int aDuration) {
 	duration = aDuration;
 }
 
-float Movie::getDuration() {
+int Movie::getDuration() {
 	return duration;
 }
 
@@ -70,7 +70,7 @@ void Movie::askInformation(){
 	scanf_s("%d",&year);
 
 	printf("\n\tDuracion de la pelicula en minutos: ");
-	scanf_s("%f",&duration);
+	scanf_s("%d",&duration);
 
 	cin.ignore();
 	printf("\n\tPais: ");
@@ -87,7 +87,7 @@ void Movie::showInformationMovie() {
 
 	printf("\tNombre: %s\n", name.c_str());
 	printf("\tAnio de creacion: %d\n", year);
-	printf("\tDuracion de la pelicula: %.2f min\n", duration);
+	printf("\tDuracion de la pelicula: %d min\n", duration);
 	printf("\tPais: %s\n", country.c_str());
 	printf("\tSinopsis de la pelicula: %s\n", synopsis.c_str());
 

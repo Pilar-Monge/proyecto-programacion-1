@@ -10,20 +10,21 @@ class Movie {
 private:
 	string name;
 	int year;
-	float duration;
+	int duration;
 	string country;
 	string synopsis;
+	
 
 public:
 	Movie();
-	Movie(string aName, int aYear, float aDuration, string aCountry, string aSynopsis);
+	Movie(string aName, int aYear, int aDuration, string aCountry, string aSynopsis);
 	~Movie();
 	void setName(string aName);
 	string  getName();
 	void setYear(int aYear);
 	int  getYear();
-	void setDuration(float aDuration);
-	float getDuration();
+	void setDuration(int aDuration);
+	int getDuration();
 	void setCountry(string aCountry);
 	string getCountry();
 	void setSynopsis( string aSynopsis);
