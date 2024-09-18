@@ -41,6 +41,6 @@ class Cinema
 		void showCinemaBillboard();
 
 		void fillInformationschedules();
-		void fillVectorOfMoviesTime(int* vector, int size);
+		void fillVectorOfMoviesTime(int* vector, int size, int numberOfRoom);
 };
 

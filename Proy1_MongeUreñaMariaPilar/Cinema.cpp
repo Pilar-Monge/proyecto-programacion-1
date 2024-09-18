@@ -192,7 +192,7 @@ void Cinema::fillInformationschedules()
 		rooms[i].setAmountOfSchedules(size);
 		if (size != 0) {
 			vectorTime = new int[size];
-			fillVectorOfMoviesTime(vectorTime, size);//revisar 
+			fillVectorOfMoviesTime(vectorTime, size, i);
 			rooms[i].fillArrayOfSchedules(vectorTime, size);
 
 		}
@@ -202,7 +202,7 @@ void Cinema::fillInformationschedules()
 	}
 }
 
-void Cinema::fillVectorOfMoviesTime(int* vector, int size)
+void Cinema::fillVectorOfMoviesTime(int* vector, int size,int numberOfRoom)
 {
 	for (int i = 0; i < size; i++) {
 		int option = 0;
@@ -212,6 +212,8 @@ void Cinema::fillVectorOfMoviesTime(int* vector, int size)
 		printf("\n Elija una pelicula de la cartelera para el horario %d ", i + 1);
 		scanf_s("%d", &option);
 		vector[i] = movies[option - 1].getDuration();
+		rooms[numberOfRoom].getSchedules()[i].setPositionMovie(option - 1);
+		rooms[numberOfRoom].getSchedules()[i].setPositionRoom(i);
 	}
 
 }

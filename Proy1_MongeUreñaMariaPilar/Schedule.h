@@ -16,10 +16,13 @@ private:
 	int endHour;
 	int endMinutes;
 	string date; 
+	int positionMovie;//hacer gets
+	int positionRoom;
+
 
 public:
 	Schedule();
-	Schedule(float aStartingHour, int aStartingMinutes, int anEndHour,int anEndMinutes, string aDate);
+	Schedule(int aStartingHour, int aStartingMinutes, int anEndHour,int anEndMinutes, string aDate, int aPositionMovie, int aPositionRoom);
 	~Schedule();
 
 	void setStartingHour(int aStartingTime);
@@ -33,6 +36,11 @@ public:
 	int  getEndMinutes();
 	void setDate(string aDate);
 	string getDate();
+
+	void setPositionMovie(int aPositionMovie);
+	int  getPositionMovie();
+	void setPositionRoom(int aPositionRoom);
+	int  getPositionRoom();
 
 	void askInformationToCreateSchedule(int *vector, int position);
 	void calculateTimeMovieEnds(int aDuration);

@@ -8,15 +8,19 @@ Schedule::Schedule()
 	endHour = 0;
 	endMinutes = 0;
 	date = " ";
+	positionMovie = 0;
+	positionRoom = 0;
 }
 
-Schedule::Schedule(float aStartingHour, int aStartingMinutes, int anEndHour, int anEndMinutes, string aDate)
+Schedule::Schedule(int aStartingHour, int aStartingMinutes, int anEndHour, int anEndMinutes, string aDate, int aPositionMovie, int aPositionRoom)
 {
 	startingHour = aStartingHour;
 	startingMinutes = aStartingMinutes;
 	endHour = anEndHour;
 	endMinutes = anEndMinutes;
 	date = aDate;
+	positionMovie = aPositionMovie;
+	positionRoom = aPositionRoom;
 }
 
 Schedule::~Schedule()
@@ -73,6 +77,26 @@ string Schedule::getDate()
 	return date;
 }
 
+void Schedule::setPositionMovie(int aPositionMovie)
+{
+	positionMovie = aPositionMovie;
+}
+
+int Schedule::getPositionMovie()
+{
+	return positionMovie;
+}
+
+void Schedule::setPositionRoom(int aPositionRoom)
+{
+	positionRoom = aPositionRoom;
+}
+
+int Schedule::getPositionRoom()
+{
+	return positionRoom;
+}
+
 void Schedule::askInformationToCreateSchedule(int* vector, int position)
 {
 	printf("\n\tPor favor, introducir la informacion del horario.\n");
@@ -88,7 +112,7 @@ void Schedule::askInformationToCreateSchedule(int* vector, int position)
 	printf("\nLa pelicula termina a las:%d:%d ",endHour,endMinutes);
 	cin.ignore();
 	
-	printf("\nFecha de la pelicula ingresarla en formayo AAAA/MM/DD(): ");
+	printf("\nFecha de la pelicula ingresarla en formayo DD/MM/AAAA(): ");
 	getline(cin, date);
 }
 
@@ -107,7 +131,7 @@ void Schedule::calculateTimeMovieEnds(int aDuration)
 
 void Schedule::showInformationSchedule()
 {
-	printf("\nFecha de la pelicula: &s ",date); 
+	printf("\nFecha de la pelicula: %s ",date.c_str());
 	printf("\nHora inicial: %d:%d \n",startingHour,startingMinutes);
 	printf("\nLa pelicula termina a las: %d:%d ", endHour, endMinutes);
 	

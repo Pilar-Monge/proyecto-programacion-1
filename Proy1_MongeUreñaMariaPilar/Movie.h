@@ -13,6 +13,7 @@ private:
 	int duration;
 	string country;
 	string synopsis;
+	//Un vector que guarde las cosas las salas en las que se transmite la peli
 	
 
 public:
