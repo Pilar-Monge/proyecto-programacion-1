@@ -188,10 +188,11 @@ void Cinema::fillVectorOfMoviesTime(int* vector, int size,int numberOfRoom)
 		system("cls");
 		showLines();
 		showCinemaBillboard();
-		printf("\n Elija una pelicula de la cartelera para el horario %d ", i + 1);
+		printf("\n Elija una pelicula de la cartelera para el horario %d :", i + 1);
 		scanf_s("%d", &option);
-		movies[option - 1].setIsMovieBeingShown(true);
+		
 		vector[i] = movies[option - 1].getDuration();
+		movies[option - 1].setIsMovieBeingShown(true);
 		rooms[numberOfRoom].getSchedules()[i].setPositionMovie(option - 1);
 		rooms[numberOfRoom].getSchedules()[i].setPositionRoom(i);
 		rows = rooms[numberOfRoom].getRows();
@@ -212,7 +213,7 @@ void Cinema::makeReservation()
 		printf("\n Elija una pelicula de la cartelera que desea ver y digite el numero de esta:");
 		scanf_s("%d", &option);
 		if (movies[option - 1].getIsMovieBeingShown() != false) {
-			printf("\n La pelicula %s se esta proyectando en:\n",movies[option-1].getName());
+			cout << "\nLa pelicula " << movies[option - 1].getName() << " se esta proyectando en:\n";
 			showSchedule(option - 1);
 
 		}
@@ -223,6 +224,29 @@ void Cinema::makeReservation()
 
 		}
 	} while (movies[option - 1].getIsMovieBeingShown() != true);
+
+}
+
+void Cinema::showThirdOptionMenu()
+{
+	string option = " ";
+
+	printf("\n\t Digite la opcion que quiere: ");
+	cin >> option;
+
+	if (option == "i") {
+		system("cls");
+		printf("\n\t Peliculas: \n");
+		showLines();
+		makeReservation();	
+		printf("\n\t Esta de nuevo en el menu principal: ");
+		showUserMenu();
+	}
+	else {
+		printf("\n\t Esta de nuevo en el menu principal: ");
+		printf("\n\n\t La opcion que digito es erronea, digitela nuevamente... \n\n");
+		showUserMenu();
+	}
 
 }
 
@@ -336,9 +360,10 @@ void Cinema::showUserOption(char userOption)
 
 		printf("\n\t Reserva: ");
 		showLines();
-
+		printf("\n\t i.Peliculas \n");
+		showLines();
+		showThirdOptionMenu();
 		system("pause");
-
 		showUserMenu();
 		; break;
 

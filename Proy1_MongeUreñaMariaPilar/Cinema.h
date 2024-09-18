@@ -40,7 +40,8 @@ class Cinema
 		void fillVectorOfMoviesTime(int* vector, int size, int numberOfRoom);
 
 		void makeReservation();
-
+		void showThirdOptionMenu();
 		void showSchedule(int aPositionMovie);
+
 };
 
