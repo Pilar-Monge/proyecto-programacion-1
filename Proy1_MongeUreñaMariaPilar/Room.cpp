@@ -10,14 +10,14 @@ Room::Room()
 	schedules[amountOfSchedules];
 }
 
-Room::Room(int aNumberOfRoom, int aRows, int anAmountOfSeatsPerRows, float aSeatPrice, Schedule* aSchedules, int anAmountOfSchedules)
+Room::Room(int aNumberOfRoom, int aRows, int anAmountOfSeatsPerRows, float aSeatPrice, Schedule* aSchedules, int anAmountOfSchedules,int anAmountSeats )
 {
 	numberOfRoom = aNumberOfRoom;
 	rows = aRows;
 	amountOfSeatsPerRows = anAmountOfSeatsPerRows;
 	seatPrice = aSeatPrice;
 	amountOfSchedules = anAmountOfSchedules;
-
+	amountSeats = anAmountSeats;
 	schedules[amountOfSchedules]=aSchedules[anAmountOfSchedules];
 }
 
@@ -54,6 +54,16 @@ int Room::getAmountOfSchedules()
 void Room::setAmountOfSchedules(int anAmountOfSchedules)
 {
 	amountOfSchedules = anAmountOfSchedules;
+}
+
+int Room::getAmountSeats()
+{
+	return amountSeats;
+}
+
+void Room::setAmountSeats(int anAmountSeats)
+{
+	amountSeats = anAmountSeats;
 }
 
 void Room::setAmountOfSeatsPerRows(int anAmountOfSeatsPerRows)
@@ -95,8 +105,8 @@ void Room::setSchedules(Schedule* aSchedules, int size)
 void Room::askInformationToCreateRoom(int aNumberOfRoom)
 {
 	numberOfRoom = aNumberOfRoom;
-	printf("\n\tPor favor, introducir la informacion de la sala %d\n",&aNumberOfRoom);
-	
+	printf("\n\tPor favor, introducir la informacion de la sala %d\n",aNumberOfRoom);
+
 	printf("\n\tCantidad de filas que tiene la sala: ");
 	scanf_s("%d", &rows);
 
@@ -105,6 +115,8 @@ void Room::askInformationToCreateRoom(int aNumberOfRoom)
 
 	printf("\n\tIngrese el precio de la butaca: ");
 	scanf_s("%f", &seatPrice);
+
+	
 }
 
 void Room::fillArrayOfSchedules(int* vector, int size)
@@ -115,8 +127,8 @@ void Room::fillArrayOfSchedules(int* vector, int size)
 	for (int i = 0; i < amountOfSchedules; i++) {
 		int time = 0;
 		printf("\n\t Horario %d \n", i + 1);
-
-		schedules[i].askInformationToCreateSchedule(vector,i);
+		
+		schedules[i].askInformationToCreateSchedule(vector, i);
 
 		system("pause");
 		system("cls");

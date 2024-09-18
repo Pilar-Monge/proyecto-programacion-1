@@ -6,14 +6,17 @@ Movie::Movie() {
 	duration = 0.00;
 	country = "None";
 	synopsis = "None";
+	isMovieBeingShown = false;
 }
 
-Movie::Movie(string aName, int aYear, int aDuration, string aCountry, string aSynopsis) {
+Movie::Movie(string aName, int aYear, int aDuration, string aCountry, string aSynopsis, bool aValue) {
 	name = aName;
 	year = aYear;
 	duration = aDuration;
 	country = aCountry;
 	synopsis = aSynopsis;
+	isMovieBeingShown = aValue;
+		
 }
 
 Movie::~Movie()
@@ -59,6 +62,18 @@ void Movie::setSynopsis(string aSynopsis) {
 string Movie::getSynopsis() {
 	return synopsis;
 }
+
+void Movie::setIsMovieBeingShown(bool aValue)
+{
+	isMovieBeingShown = aValue;
+}
+
+bool Movie::getIsMovieBeingShown()
+{
+	return isMovieBeingShown;
+}
+
+
 
 void Movie::askInformation(){
 	printf("\n\tPor favor, introducir la informacion de la pelicula.\n");

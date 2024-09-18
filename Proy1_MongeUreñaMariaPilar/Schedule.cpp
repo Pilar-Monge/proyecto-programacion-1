@@ -10,9 +10,16 @@ Schedule::Schedule()
 	date = " ";
 	positionMovie = 0;
 	positionRoom = 0;
+	seats = new char* [rows];
+	for (int i = 0; i < rows; i++) {
+		seats[i] = new char[columns];
+		for (int j = 0; j < columns; j++) {
+			seats[i][j] = 'A';
+		}
+	}
 }
 
-Schedule::Schedule(int aStartingHour, int aStartingMinutes, int anEndHour, int anEndMinutes, string aDate, int aPositionMovie, int aPositionRoom)
+Schedule::Schedule(int aStartingHour, int aStartingMinutes, int anEndHour, int anEndMinutes, string aDate, int aPositionMovie, int aPositionRoom, int aRows, int aColumn)
 {
 	startingHour = aStartingHour;
 	startingMinutes = aStartingMinutes;
@@ -21,6 +28,16 @@ Schedule::Schedule(int aStartingHour, int aStartingMinutes, int anEndHour, int a
 	date = aDate;
 	positionMovie = aPositionMovie;
 	positionRoom = aPositionRoom;
+	rows = aRows;
+	columns = aColumn;
+	seats = new char* [aRows];
+	for (int i = 0; i < aRows; i++) {
+		seats[i] = new char[aColumn];
+		for (int j = 0; j < aColumn; j++) {
+			seats[i][j] = 'A';
+		}
+	}
+
 }
 
 Schedule::~Schedule()
@@ -77,6 +94,31 @@ string Schedule::getDate()
 	return date;
 }
 
+char Schedule::getSeat()
+{
+	return **seats;
+}
+
+void Schedule::setRows(int aRows)
+{
+	rows = aRows;
+}
+
+int Schedule::getRows()
+{
+	return rows;
+}
+
+void Schedule::setColums(int aColumns)
+{
+	columns = aColumns;
+}
+
+int Schedule::getColums()
+{
+	return columns;
+}
+
 void Schedule::setPositionMovie(int aPositionMovie)
 {
 	positionMovie = aPositionMovie;
@@ -114,6 +156,9 @@ void Schedule::askInformationToCreateSchedule(int* vector, int position)
 	
 	printf("\nFecha de la pelicula ingresarla en formayo DD/MM/AAAA(): ");
 	getline(cin, date);
+
+	createMatrix();
+	
 }
 
 void Schedule::calculateTimeMovieEnds(int aDuration)
@@ -131,10 +176,23 @@ void Schedule::calculateTimeMovieEnds(int aDuration)
 
 void Schedule::showInformationSchedule()
 {
+	printf("\nSala: %d ", positionRoom+1); 
 	printf("\nFecha de la pelicula: %s ",date.c_str());
 	printf("\nHora inicial: %d:%d \n",startingHour,startingMinutes);
 	printf("\nLa pelicula termina a las: %d:%d ", endHour, endMinutes);
 	
+}
+
+void Schedule::createMatrix()
+{
+	seats = new char* [rows];
+	for (int i = 0; i < rows; i++) {
+		seats[i] = new char[columns];
+		for (int j = 0; j < columns; j++) {
+			seats[i][j] = 'A';
+		}
+	}
+
 }
 
 

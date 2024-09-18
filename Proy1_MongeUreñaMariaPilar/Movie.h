@@ -13,12 +13,11 @@ private:
 	int duration;
 	string country;
 	string synopsis;
-	//Un vector que guarde las cosas las salas en las que se transmite la peli
-	
+	bool isMovieBeingShown;
 
 public:
 	Movie();
-	Movie(string aName, int aYear, int aDuration, string aCountry, string aSynopsis);
+	Movie(string aName, int aYear, int aDuration, string aCountry, string aSynopsis, bool aValue);
 	~Movie();
 	void setName(string aName);
 	string  getName();
@@ -30,6 +29,10 @@ public:
 	string getCountry();
 	void setSynopsis( string aSynopsis);
 	string getSynopsis( );
+
+	void setIsMovieBeingShown(bool aValue);
+	bool getIsMovieBeingShown();
+	
 	void askInformation();
 	void showInformationMovie();
 

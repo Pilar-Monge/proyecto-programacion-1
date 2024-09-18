@@ -130,12 +130,14 @@
     <ClCompile Include="Cinema.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="Proy1_MongeUreñaMariaPilar.cpp" />
+    <ClCompile Include="Reserve.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Schedule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cinema.h" />
     <ClInclude Include="Movie.h" />
+    <ClInclude Include="Reserve.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Schedule.h" />
   </ItemGroup>

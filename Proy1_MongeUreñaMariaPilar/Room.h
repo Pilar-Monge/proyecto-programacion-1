@@ -17,10 +17,11 @@ private:
 	float seatPrice; 
 	Schedule* schedules;
 	int amountOfSchedules;
+	int amountSeats;
 
 public:
 	Room();
-	Room(int aNumberOfRoom,int aRows,int anAmountOfSeatsPerRows,float aSeatPrice, Schedule* aSchedules, int anAmountOfSchedules);
+	Room(int aNumberOfRoom,int aRows,int anAmountOfSeatsPerRows,float aSeatPrice, Schedule* aSchedules, int anAmountOfSchedules, int anAmountSeats);
 	~Room();
 	void setNumberOfRoom(int aNumberOfRoom);
 	int  getNumberOfRoom();
@@ -28,7 +29,8 @@ public:
 	int  getRows();
 	int getAmountOfSchedules();
 	void setAmountOfSchedules(int anAmountOfSchedules);
-	
+	int getAmountSeats();
+	void setAmountSeats(int anAmountSeats);
 	void setAmountOfSeatsPerRows(int anAmountOfSeatsPerRows);
 	int getAmountOfSeatsPerRows();
 	void setSeatPrice(float aSeatPrice);

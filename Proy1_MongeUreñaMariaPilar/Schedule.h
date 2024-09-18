@@ -16,13 +16,16 @@ private:
 	int endHour;
 	int endMinutes;
 	string date; 
-	int positionMovie;//hacer gets
+	int positionMovie;
 	int positionRoom;
+	char** seats;
+	int rows;
+	int columns;
 
 
 public:
 	Schedule();
-	Schedule(int aStartingHour, int aStartingMinutes, int anEndHour,int anEndMinutes, string aDate, int aPositionMovie, int aPositionRoom);
+	Schedule(int aStartingHour, int aStartingMinutes, int anEndHour,int anEndMinutes, string aDate, int aPositionMovie, int aPositionRoom, int aRows, int aColumn);
 	~Schedule();
 
 	void setStartingHour(int aStartingTime);
@@ -37,6 +40,14 @@ public:
 	void setDate(string aDate);
 	string getDate();
 
+	char  getSeat();
+
+	void setRows(int aRows);
+	int  getRows();
+
+	void setColums(int aColumns);
+	int getColums();
+
 	void setPositionMovie(int aPositionMovie);
 	int  getPositionMovie();
 	void setPositionRoom(int aPositionRoom);
@@ -45,6 +56,8 @@ public:
 	void askInformationToCreateSchedule(int *vector, int position);
 	void calculateTimeMovieEnds(int aDuration);
 	void showInformationSchedule();
+
+	void createMatrix();
 
 };
 

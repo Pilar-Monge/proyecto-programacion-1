@@ -23,12 +23,8 @@ class Cinema
 
 		void setAmountOfRoomes(int anAmountOfRooms);
 		int getAmountOfRooms();
-
-		/*void setMovies(Movie* aMovies, int size);
-		Movie* getMovies();*/
-
-	//	void setRooms(Room* aRooms, int size);
-		//Room* getRooms();
+		Movie* getMovies();
+		Room* getRooms();
 	
 		
 		void showUserMenu();
@@ -42,5 +38,9 @@ class Cinema
 
 		void fillInformationschedules();
 		void fillVectorOfMoviesTime(int* vector, int size, int numberOfRoom);
+
+		void makeReservation();
+
+		void showSchedule(int aPositionMovie);
 };
 

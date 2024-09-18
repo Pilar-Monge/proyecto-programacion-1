@@ -39,37 +39,15 @@ int Cinema::getAmountOfRooms(){
 	return amountOfRooms;
 }
 
-//void Cinema::setMovies(Movie* aMovies, int size)
-//{
-//	aMovies = new Movie[size];
-//	for (int i = 0; i < size; ++i) 
-//		aMovies[i]= movies[i]; 
-//	delete[] movies;
-//	amountOfMovies = size;
-//	movies = aMovies;
-//
-//}
-//
-//Movie* Cinema::getMovies()
-//{
-//	return movies;
-//}
-//
-//void Cinema::setRooms(Room* aRooms, int size)
-//{
-//	aRooms = new Room[size];
-//	for (int i = 0; i < size; ++i)
-//		aRooms[i] = rooms[i];
-//	delete[] rooms;
-//	amountOfRooms = size;
-//	rooms = aRooms;
-//
-//}
-//
-//Room* Cinema::getRooms()
-//{
-//	return rooms;
-//}
+Movie* Cinema::getMovies()
+{
+	return movies;
+}
+
+Room* Cinema::getRooms()
+{
+	return rooms;
+}
 
 void Cinema::showLines(){
 
@@ -112,7 +90,7 @@ void Cinema::fillArrayOfMovies()
 {
 	printf("\n Cuantas peliculas quiere ingresar: ");
 	scanf_s("%d", &amountOfMovies);
-
+	
 	movies = new Movie[amountOfMovies];
 
 	printf("\n Por favor ingrese la informacion solicitada.\n ");
@@ -139,7 +117,7 @@ void Cinema::fillArrayOfRooms()
 	printf("\n Por favor ingrese la informacion solicitada.\n ");
 	showLines();
 	for (int i = 0; i < amountOfRooms; i++) {
-
+		
 		printf("\n\t Sala de Cine %d \n", i + 1);
 		
 		rooms[i].askInformationToCreateRoom(i+1);
@@ -204,6 +182,7 @@ void Cinema::fillInformationschedules()
 
 void Cinema::fillVectorOfMoviesTime(int* vector, int size,int numberOfRoom)
 {
+	int rows = 0, columns = 0;
 	for (int i = 0; i < size; i++) {
 		int option = 0;
 		system("cls");
@@ -211,9 +190,52 @@ void Cinema::fillVectorOfMoviesTime(int* vector, int size,int numberOfRoom)
 		showCinemaBillboard();
 		printf("\n Elija una pelicula de la cartelera para el horario %d ", i + 1);
 		scanf_s("%d", &option);
+		movies[option - 1].setIsMovieBeingShown(true);
 		vector[i] = movies[option - 1].getDuration();
 		rooms[numberOfRoom].getSchedules()[i].setPositionMovie(option - 1);
 		rooms[numberOfRoom].getSchedules()[i].setPositionRoom(i);
+		rows = rooms[numberOfRoom].getRows();
+		rooms[numberOfRoom].getSchedules()[i].setRows(rows);
+		columns = rooms[numberOfRoom].getAmountOfSeatsPerRows();
+		rooms[numberOfRoom].getSchedules()[i].setColums(columns);
+
+	}
+
+}
+
+void Cinema::makeReservation()
+{
+	int option = 0;
+	do {
+		system("cls");
+		showCinemaBillboard();
+		printf("\n Elija una pelicula de la cartelera que desea ver y digite el numero de esta:");
+		scanf_s("%d", &option);
+		if (movies[option - 1].getIsMovieBeingShown() != false) {
+			printf("\n La pelicula %s se esta proyectando en:\n",movies[option-1].getName());
+			showSchedule(option - 1);
+
+		}
+		else {
+
+			printf("\n La pelicula que eligio no esta todavia registrada en ningun horario. Trate con otra.\n ");
+			system("pause");
+
+		}
+	} while (movies[option - 1].getIsMovieBeingShown() != true);
+
+}
+
+void Cinema::showSchedule(int aPositionMovie)
+{
+	for (int i = 0; i < amountOfRooms; i++) {
+		for(int j=0;j<rooms[i].getAmountOfSchedules();j++)
+			if (rooms[i].getSchedules()[j].getPositionMovie() == aPositionMovie) {
+
+				rooms[i].getSchedules()[j].showInformationSchedule();
+				
+			}
+
 	}
 
 }
